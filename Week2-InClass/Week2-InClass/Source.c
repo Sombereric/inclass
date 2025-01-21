@@ -9,12 +9,14 @@ int add(int a, int b);               // Student 2
 int subtract(int a, int b);          // Student 3
 double calculateArea(double radius); // Student 4
 unsigned long long factorial(int n); // Student 5
-void displayMenu(void);             // Student 6
+void displayMenu(void);              // Student 6
 
 int main(void) {
     // Variable declarations
     int choice;
     char input[100]; // For safer input handling
+    int inputNumber1, inputNumber2;
+    int (*ptrAdd)(int a, int b);
 
     // Display a welcome message
     printf("Welcome to the Collaborative Code Management Program!\n");
@@ -35,7 +37,16 @@ int main(void) {
         greet(); // Call greet function
         break;
     case 2:
-        // Call add function (placeholder)
+        // Call add function (placeholder) 
+        
+        printf("Enter first number: ");
+        scanf_s("%d", &inputNumber1);
+        printf("Enter second number: ");
+        scanf_s("%d", &inputNumber2);
+
+        ptrAdd = add;
+        
+        printf("%d + %d = %d", inputNumber1, inputNumber2, ptrAdd(inputNumber1, inputNumber2));
         break;
     case 3:
         // Call subtract function (placeholder)
@@ -62,9 +73,9 @@ void greet(void) {
 }
 
 // Student 2: Modify add() function to take user input
-int add(int a, int b) {
-    // Placeholder
-    return 0; // Replace with actual logic
+int add(int inputNumber1, int inputNumber2) {
+
+    return inputNumber1 + inputNumber2; // Replace with actual logic
 }
 
 // Student 3: Complete subtract() function
