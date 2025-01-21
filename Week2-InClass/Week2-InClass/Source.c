@@ -13,7 +13,7 @@ void displayMenu(void);             // Student 6
 
 int main(void) {
     // Variable declarations
-    int choice = 0;
+    int choice;
     char input[100]; // For safer input handling
     double (*areaFuncPtr)(double) = calculateArea; // Pointer for calculateArea function
 
