@@ -45,9 +45,12 @@ int main(void) {
         // Declaring variables to hold input & function pointers
         double radius;
         double result;
+
+        //Prompt user for radius
         printf("\nEnter the radius of the circle:\n");
         scanf_s("%lf", &radius);
 
+        //Call area function w/ pointer
         result = areaFuncPtr(radius);
         printf("The area of the circle is %.4lf", result);
 
