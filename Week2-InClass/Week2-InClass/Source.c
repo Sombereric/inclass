@@ -28,7 +28,7 @@ int main(void) {
     printf("\nEnter your choice: ");
     if (fgets(input, sizeof(input), stdin) != NULL) {
         // Parse the input (placeholder)
-        // Example: sscanf_s(input, "%d", &choice);
+        sscanf_s(input, "%d", &choice);
     }
 
     // Use a switch-case to handle menu options
