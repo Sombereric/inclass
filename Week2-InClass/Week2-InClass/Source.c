@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 // Define constants (if necessary)
-// Example: #define PI 3.14159265358979323846
+#define PI 3.14159265358979323846
 
 // Function declarations
 void greet(void);                    // Student 1
@@ -15,6 +15,8 @@ int main(void) {
     // Variable declarations
     int choice;
     char input[100]; // For safer input handling
+    double (*areaFuncPtr)(double) = calculateArea; // Pointer for calculateArea function
+
 
     // Display a welcome message
     printf("Welcome to the Collaborative Code Management Program!\n");
@@ -25,8 +27,7 @@ int main(void) {
     // Accept user input for menu selection
     printf("\nEnter your choice: ");
     if (fgets(input, sizeof(input), stdin) != NULL) {
-        // Parse the input (placeholder)
-        // Example: sscanf_s(input, "%d", &choice);
+        sscanf_s(input, "%d", &choice);
     }
 
     // Use a switch-case to handle menu options
@@ -40,8 +41,20 @@ int main(void) {
     case 3:
         // Call subtract function (placeholder)
         break;
-    case 4:
-        // Call calculate_area function (placeholder)
+    case 4: {
+        // Declaring variables to hold input & function pointers
+        double radius;
+        double result;
+
+        //Prompt user for radius
+        printf("\nEnter the radius of the circle:\n");
+        scanf_s("%lf", &radius);
+
+        //Call area function w/ pointer
+        result = areaFuncPtr(radius);
+        printf("The area of the circle is %.4lf", result);
+
+    }
         break;
     case 5:
         // Call factorial function (placeholder)
@@ -75,8 +88,8 @@ int subtract(int a, int b) {
 
 // Student 4: Implement calculate_area() function
 double calculateArea(double radius) {
-    // Placeholder
-    return 0.0; // Replace with actual logic
+    // Return result of PI times the square of the radius as a double
+    return (PI * (radius * radius));
 }
 
 // Student 5: Develop factorial() function
